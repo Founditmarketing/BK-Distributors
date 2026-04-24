@@ -3,9 +3,12 @@ import { useState, useEffect } from 'react';
 import { Star } from 'lucide-react';
 
 const REVIEWS = [
-  { name: 'Sarah M.', text: 'Best trophies in CENLA. They handled our basketball tournament with zero stress and amazing quality.', rating: 5 },
-  { name: 'Jason R.', text: 'Expert vehicle wraps. My fleet looks premium and the turnaround was faster than expected.', rating: 5 },
-  { name: 'Dr. Emily L.', text: 'Custom plaques for our donor wall were stunning. Detailed, precise, and perfectly installed.', rating: 5 },
+  { name: 'Troy Snell', text: 'These guys delivered a plaque on request within hours for a short notice event. I couldn\'t have been happier with the result.', rating: 5 },
+  { name: 'Melissa Norris', text: 'Blaine was so good to us when we needed a different shirt for my daughter\'s school spirit shirt. Everyone is so nice and helpful!!', rating: 5 },
+  { name: 'James Sizemore', text: 'Best in the state, never disappointed. Very professional. They do it all.', rating: 5 },
+  { name: 'Shawn Haley Parker', text: 'BK Distributors goes above and beyond to help a customer out! Great customer service! And we love our cheer competition banners!', rating: 5 },
+  { name: 'mark charrier', text: 'These guys are great! If you need trophies, plaques, signs, stickers, and a lot more!! These folks are ready to help!', rating: 5 },
+  { name: 'Charles Elliott', text: 'They have been printing our campaign signs. Great people!', rating: 5 },
 ];
 
 export function StatsTestimonials() {
