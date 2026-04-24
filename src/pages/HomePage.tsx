@@ -1,5 +1,6 @@
 import { Hero } from '../components/Hero';
 import { TrustBar } from '../components/TrustBar';
+import { VideoSection } from '../components/VideoSection';
 import { ServicesGrid } from '../components/ServicesGrid';
 import { About } from '../components/About';
 import { WorkGallery } from '../components/WorkGallery';
@@ -11,6 +12,7 @@ export function HomePage() {
     <>
       <Hero />
       <TrustBar />
+      <VideoSection />
       <ServicesGrid />
       <About />
       <WorkGallery />
