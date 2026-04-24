@@ -95,36 +95,36 @@ export function Hero() {
             transition={{ duration: 1, delay: 0.4 }}
             className="relative"
           >
-            {/* Top Photo */}
+            {/* Top Photo — gold ring close-up */}
             <motion.div 
               className="absolute -top-20 right-0 w-64 h-80 bg-surface border border-gold/30 shadow-2xl overflow-hidden -rotate-2"
               whileHover={{ rotate: 0, scale: 1.05 }}
             >
               <img 
-                src="https://bkdistrib.com/wp-content/uploads/2021/09/163664640_3903855229679429_7922458393556896521_n.jpg" 
-                alt="Trophy display" 
+                src="https://bkdistrib.com/wp-content/uploads/2022/06/DSC_0634-scaled.jpg" 
+                alt="Championship ring detail" 
                 className="w-full h-full object-cover"
               />
             </motion.div>
-            {/* Middle Photo */}
+            {/* Middle Photo — trophy display */}
             <motion.div 
               className="relative w-80 h-[450px] bg-surface border border-gold/30 shadow-2xl z-10 overflow-hidden"
               whileHover={{ scale: 1.05 }}
             >
               <img 
-                src="https://bkdistrib.com/wp-content/uploads/2020/10/IMG_5502.jpeg" 
-                alt="Awards closer" 
+                src="https://bkdistrib.com/wp-content/uploads/2022/06/DSC_0556-scaled.jpg" 
+                alt="Trophy display case" 
                 className="w-full h-full object-cover"
               />
             </motion.div>
-            {/* Bottom Photo */}
+            {/* Bottom Photo — vehicle wrap */}
             <motion.div 
               className="absolute -bottom-12 -left-20 w-72 h-48 bg-surface border border-gold/30 shadow-2xl z-20 overflow-hidden rotate-1"
               whileHover={{ rotate: 0, scale: 1.05 }}
             >
               <img 
-                src="https://bkdistrib.com/wp-content/uploads/2020/09/IMG_2493-scaled.jpeg" 
-                alt="Vehicle wrap" 
+                src="https://bkdistrib.com/wp-content/uploads/2022/06/IMG_2507-scaled.jpeg" 
+                alt="Custom vehicle wrap" 
                 className="w-full h-full object-cover"
               />
             </motion.div>

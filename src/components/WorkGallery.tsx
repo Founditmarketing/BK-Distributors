@@ -1,12 +1,19 @@
 import { motion } from 'motion/react';
 
 const ITEMS = [
-  { img: "https://bkdistrib.com/wp-content/uploads/2021/09/163664640_3903855229679429_7922458393556896521_n.jpg", cat: "Trophies", span: "row-span-2" },
-  { img: "https://bkdistrib.com/wp-content/uploads/2021/09/141028441_3739939642737656_8400330519664310153_n.jpg", cat: "Awards", span: "" },
-  { img: "https://bkdistrib.com/wp-content/uploads/2021/09/141289756_3739939862737634_1702301494937318150_n.jpg", cat: "Custom Engraving", span: "" },
-  { img: "https://bkdistrib.com/wp-content/uploads/2021/09/163525524_3903855203012765_5647694542229209685_n.jpg", cat: "Plaques", span: "" },
-  { img: "https://bkdistrib.com/wp-content/uploads/2020/10/IMG_5502.jpeg", cat: "Specialty", span: "col-span-2" },
-  { img: "https://bkdistrib.com/wp-content/uploads/2020/09/IMG_2493-scaled.jpeg", cat: "Vehicle Wraps", span: "" },
+  // Professional DSC ring & trophy shots — the money shots
+  { img: "https://bkdistrib.com/wp-content/uploads/2022/06/DSC_0634-scaled.jpg", cat: "Championship Rings", span: "row-span-2" },
+  { img: "https://bkdistrib.com/wp-content/uploads/2022/06/DSC_0641-scaled.jpg", cat: "Gold Rings", span: "" },
+  { img: "https://bkdistrib.com/wp-content/uploads/2022/06/DSC_0646-scaled.jpg", cat: "Diamond Rings", span: "" },
+  { img: "https://bkdistrib.com/wp-content/uploads/2022/06/DSC_0556-scaled.jpg", cat: "Trophies", span: "" },
+  { img: "https://bkdistrib.com/wp-content/uploads/2022/06/DSC_0562-scaled.jpg", cat: "Trophy Display", span: "col-span-2" },
+  { img: "https://bkdistrib.com/wp-content/uploads/2022/06/DSC_0564-scaled.jpg", cat: "Custom Plaques", span: "" },
+  { img: "https://bkdistrib.com/wp-content/uploads/2022/06/DSC_0659-scaled.jpg", cat: "Medals", span: "row-span-2" },
+  { img: "https://bkdistrib.com/wp-content/uploads/2022/06/DSC_0675-scaled.jpg", cat: "Awards", span: "" },
+  { img: "https://bkdistrib.com/wp-content/uploads/2022/06/DSC_0681-scaled.jpg", cat: "Engraving", span: "" },
+  { img: "https://bkdistrib.com/wp-content/uploads/2022/06/DSC_0693-scaled.jpg", cat: "Custom Rings", span: "" },
+  { img: "https://bkdistrib.com/wp-content/uploads/2022/06/IMG_2507-scaled.jpeg", cat: "Vehicle Wraps", span: "col-span-2" },
+  { img: "https://bkdistrib.com/wp-content/uploads/2022/06/DSC_0704-scaled.jpg", cat: "Trophies & Awards", span: "" },
 ];
 
 export function WorkGallery() {
