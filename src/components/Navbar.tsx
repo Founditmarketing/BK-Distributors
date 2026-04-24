@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform } from 'motion/react';
+import { motion, useScroll } from 'motion/react';
 import { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 
@@ -32,19 +32,7 @@ export function Navbar() {
         {/* Desktop Links */}
         <div className="hidden lg:flex items-center gap-12">
           <NavLink href="#home">Home</NavLink>
-          <div className="relative group">
-            <button className="flex items-center gap-2 sans-ui text-[13px] tracking-widest uppercase opacity-80 hover:opacity-100 hover:text-gold transition-all">
-              <span>Services</span>
-              <ChevronDown size={14} />
-            </button>
-            <div className="absolute top-full left-1/2 -translate-x-1/2 mt-6 w-[480px] bg-surface border border-gold/10 p-8 opacity-0 translate-y-4 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all grid grid-cols-2 gap-x-8 gap-y-3 shadow-2xl">
-              {SERVICES.map(service => (
-                <a key={service} href={`#${service.toLowerCase().replace(' ', '-')}`} className="text-cream/50 hover:text-gold text-[13px] sans-ui tracking-wider uppercase transition-colors">
-                  {service}
-                </a>
-              ))}
-            </div>
-          </div>
+          <ServicesDropdown />
           <NavLink href="#gallery">Gallery</NavLink>
           <NavLink href="#contact">Contact</NavLink>
         </div>
@@ -67,13 +55,13 @@ export function Navbar() {
         initial={false}
         animate={isOpen ? { x: 0 } : { x: '100%' }}
         transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-        className="fixed inset-0 bg-dark z-50 lg:hidden flex flex-col items-center justify-center space-y-8"
+        className="fixed inset-0 bg-dark z-50 lg:hidden flex flex-col items-center justify-center overflow-y-auto"
       >
         <button className="absolute top-8 right-6 text-cream" onClick={() => setIsOpen(false)}>
           <X size={32} />
         </button>
-        <div className="flex flex-col items-center space-y-6">
-          {['Home', 'About', 'Services', 'Gallery', 'Schools', 'Reviews', 'Contact'].map(link => (
+        <div className="flex flex-col items-center space-y-6 py-20 w-full px-8">
+          {['Home', 'About', 'Gallery', 'Schools', 'Reviews', 'Contact'].map(link => (
             <a 
               key={link} 
               href={`#${link.toLowerCase()}`} 
@@ -83,12 +71,111 @@ export function Navbar() {
               {link}
             </a>
           ))}
+
+          {/* Mobile Services accordion */}
+          <MobileServicesAccordion onNavigate={() => setIsOpen(false)} />
+
           <button className="mt-8 bg-gold text-dark px-10 py-4 rounded-full font-sans font-bold text-lg">
             Get a Quote
           </button>
         </div>
       </motion.div>
     </nav>
+  );
+}
+
+/* ── Desktop: click-to-toggle dropdown ──────────────────────────── */
+function ServicesDropdown() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  // Close when clicking anywhere outside
+  useEffect(() => {
+    if (!isOpen) return;
+    const handler = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (!target.closest('[data-services-dropdown]')) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener('click', handler);
+    return () => document.removeEventListener('click', handler);
+  }, [isOpen]);
+
+  return (
+    <div className="relative" data-services-dropdown="">
+      <button
+        onClick={() => setIsOpen(prev => !prev)}
+        className="flex items-center gap-2 sans-ui text-[13px] tracking-widest uppercase opacity-80 hover:opacity-100 hover:text-gold transition-all"
+      >
+        <span>Services</span>
+        <ChevronDown
+          size={14}
+          className="transition-transform duration-250"
+          style={{ transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}
+        />
+      </button>
+
+      {/* Dropdown panel */}
+      <div
+        className={`absolute top-[calc(100%+8px)] left-1/2 -translate-x-1/2 w-[480px] bg-surface border border-gold/10 p-8 shadow-2xl grid grid-cols-2 gap-x-8 gap-y-3 transition-all duration-200 ${
+          isOpen
+            ? 'opacity-100 translate-y-0 pointer-events-auto'
+            : 'opacity-0 translate-y-3 pointer-events-none'
+        }`}
+      >
+        {SERVICES.map(service => (
+          <a
+            key={service}
+            href={`#${service.toLowerCase().replace(' ', '-')}`}
+            onClick={() => setIsOpen(false)}
+            className="text-cream/50 hover:text-gold text-[13px] sans-ui tracking-wider uppercase transition-colors"
+          >
+            {service}
+          </a>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/* ── Mobile: inline accordion ───────────────────────────────────── */
+function MobileServicesAccordion({ onNavigate }: { onNavigate: () => void }) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div className="w-full text-center">
+      <button
+        onClick={() => setIsOpen(prev => !prev)}
+        className="font-display text-4xl hover:text-gold transition-colors flex items-center justify-center gap-3 w-full"
+      >
+        Services
+        <ChevronDown
+          size={24}
+          className="transition-transform duration-250"
+          style={{ transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}
+        />
+      </button>
+
+      {/* Accordion body */}
+      <div
+        className={`overflow-hidden transition-all duration-300 ${
+          isOpen ? 'max-h-[400px] mt-4' : 'max-h-0'
+        }`}
+      >
+        <div className="grid grid-cols-2 gap-3 px-4">
+          {SERVICES.map(service => (
+            <a
+              key={service}
+              href={`#${service.toLowerCase().replace(' ', '-')}`}
+              onClick={onNavigate}
+              className="text-cream/60 hover:text-gold text-[13px] sans-ui tracking-wider uppercase transition-colors py-2"
+            >
+              {service}
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
   );
 }
 
