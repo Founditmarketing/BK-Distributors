@@ -3,13 +3,14 @@ import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { motion, useScroll, useSpring } from 'motion/react';
 
-import { HomePage }    from './pages/HomePage';
-import { AboutPage }   from './pages/AboutPage';
-import { ServicesPage } from './pages/ServicesPage';
-import { GalleryPage } from './pages/GalleryPage';
-import { SchoolsPage } from './pages/SchoolsPage';
-import { ReviewsPage } from './pages/ReviewsPage';
-import { ContactPage } from './pages/ContactPage';
+import { HomePage }         from './pages/HomePage';
+import { AboutPage }        from './pages/AboutPage';
+import { ServicesPage }     from './pages/ServicesPage';
+import { ServiceDetailPage } from './pages/ServiceDetailPage';
+import { GalleryPage }      from './pages/GalleryPage';
+import { SchoolsPage }      from './pages/SchoolsPage';
+import { ReviewsPage }      from './pages/ReviewsPage';
+import { ContactPage }      from './pages/ContactPage';
 
 function ScrollProgress() {
   const { scrollYProgress } = useScroll();
@@ -27,13 +28,14 @@ export default function App() {
 
         <main>
           <Routes>
-            <Route path="/"         element={<HomePage />} />
-            <Route path="/about"    element={<AboutPage />} />
-            <Route path="/services" element={<ServicesPage />} />
-            <Route path="/gallery"  element={<GalleryPage />} />
-            <Route path="/schools"  element={<SchoolsPage />} />
-            <Route path="/reviews"  element={<ReviewsPage />} />
-            <Route path="/contact"  element={<ContactPage />} />
+            <Route path="/"                  element={<HomePage />} />
+            <Route path="/about"             element={<AboutPage />} />
+            <Route path="/services"          element={<ServicesPage />} />
+            <Route path="/services/:service" element={<ServiceDetailPage />} />
+            <Route path="/gallery"           element={<GalleryPage />} />
+            <Route path="/schools"           element={<SchoolsPage />} />
+            <Route path="/reviews"           element={<ReviewsPage />} />
+            <Route path="/contact"           element={<ContactPage />} />
           </Routes>
         </main>
 

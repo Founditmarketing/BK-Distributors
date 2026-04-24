@@ -4,8 +4,17 @@ import { Menu, X, ChevronDown } from 'lucide-react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 const SERVICES = [
-  'Trophies', 'Plaques', 'Medals', 'Signs', 'Vehicle Wraps', 'Banners',
-  'Decals', 'Political Signs', 'Rings', 'Stickers', 'Apparel'
+  { label: 'Trophies',        slug: 'trophies' },
+  { label: 'Plaques',         slug: 'plaques' },
+  { label: 'Medals',          slug: 'medals' },
+  { label: 'Signs',           slug: 'signs' },
+  { label: 'Vehicle Wraps',   slug: 'vehicle-wraps' },
+  { label: 'Banners',         slug: 'banners' },
+  { label: 'Decals',          slug: 'decals' },
+  { label: 'Political Signs', slug: 'political-signs' },
+  { label: 'Rings',           slug: 'rings' },
+  { label: 'Stickers',        slug: 'stickers' },
+  { label: 'Apparel',         slug: 'apparel' },
 ];
 
 export function Navbar() {
@@ -151,11 +160,11 @@ function ServicesDropdown() {
       >
         {SERVICES.map(service => (
           <button
-            key={service}
-            onClick={() => { setIsOpen(false); navigate(`/services`); }}
+            key={service.slug}
+            onClick={() => { setIsOpen(false); navigate(`/services/${service.slug}`); }}
             className="text-cream/50 hover:text-gold text-[13px] sans-ui tracking-wider uppercase transition-colors text-left"
           >
-            {service}
+            {service.label}
           </button>
         ))}
       </div>
@@ -185,11 +194,11 @@ function MobileServicesAccordion() {
         <div className="grid grid-cols-2 gap-3 px-4">
           {SERVICES.map(service => (
             <button
-              key={service}
-              onClick={() => { setIsOpen(false); navigate('/services'); }}
+              key={service.slug}
+              onClick={() => { setIsOpen(false); navigate(`/services/${service.slug}`); }}
               className="text-cream/60 hover:text-gold text-[13px] sans-ui tracking-wider uppercase transition-colors py-2 text-left"
             >
-              {service}
+              {service.label}
             </button>
           ))}
         </div>
