@@ -61,10 +61,16 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.6 }}
             className="flex flex-wrap gap-6 pt-4"
           >
-            <button className="gold-bg text-dark px-10 py-5 rounded-full sans-ui text-[14px] flex items-center gap-3 group hover:bg-gold transition-colors shadow-lg shadow-gold/10">
+            <button
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              className="gold-bg text-dark px-10 py-5 rounded-full sans-ui text-[14px] flex items-center gap-3 group hover:opacity-90 transition-opacity shadow-lg shadow-gold/10"
+            >
               Get a Quote <span className="text-xl group-hover:translate-x-1 transition-transform">→</span>
             </button>
-            <button className="border border-cream opacity-30 text-cream px-10 py-5 rounded-full sans-ui text-[14px] hover:opacity-100 transition-opacity">
+            <button
+              onClick={() => document.getElementById('gallery')?.scrollIntoView({ behavior: 'smooth' })}
+              className="border border-cream text-cream px-10 py-5 rounded-full sans-ui text-[14px] hover:bg-cream hover:text-dark transition-colors"
+            >
               See Our Work
             </button>
           </motion.div>

@@ -39,7 +39,10 @@ export function Navbar() {
 
         {/* CTA */}
         <div className="hidden lg:block">
-          <button className="bg-gold text-dark border border-gold px-8 py-2.5 rounded-full sans-ui text-[12px] tracking-widest uppercase font-bold hover:bg-transparent hover:text-gold transition-all duration-300">
+          <button
+            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            className="bg-gold text-dark border border-gold px-8 py-2.5 rounded-full sans-ui text-[12px] tracking-widest uppercase font-bold hover:bg-transparent hover:text-gold transition-all duration-300"
+          >
             Get a Quote
           </button>
         </div>
@@ -75,7 +78,10 @@ export function Navbar() {
           {/* Mobile Services accordion */}
           <MobileServicesAccordion onNavigate={() => setIsOpen(false)} />
 
-          <button className="mt-8 bg-gold text-dark px-10 py-4 rounded-full font-sans font-bold text-lg">
+          <button
+            onClick={() => { setIsOpen(false); setTimeout(() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }), 300); }}
+            className="mt-8 bg-gold text-dark px-10 py-4 rounded-full font-sans font-bold text-lg"
+          >
             Get a Quote
           </button>
         </div>
