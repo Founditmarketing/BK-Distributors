@@ -1,4 +1,5 @@
 import { motion } from 'motion/react';
+import { useNavigate } from 'react-router-dom';
 
 const ITEMS = [
   // Professional DSC ring & trophy shots — the money shots
@@ -17,6 +18,7 @@ const ITEMS = [
 ];
 
 export function WorkGallery() {
+  const navigate = useNavigate();
   return (
     <section id="gallery" className="section-padding bg-dark">
       <div className="max-w-7xl mx-auto px-6">
@@ -58,6 +60,15 @@ export function WorkGallery() {
               <div className="absolute inset-0 border-[0px] group-hover:border-[1px] border-gold transition-all duration-300 pointer-events-none"></div>
             </motion.div>
           ))}
+        </div>
+
+        <div className="flex justify-center mt-16">
+          <button
+            onClick={() => navigate('/gallery')}
+            className="border border-gold text-gold px-12 py-4 rounded-full sans-ui text-[13px] tracking-widest uppercase hover:bg-gold hover:text-dark transition-all duration-300"
+          >
+            View Full Gallery →
+          </button>
         </div>
       </div>
     </section>
