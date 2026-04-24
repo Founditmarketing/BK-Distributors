@@ -72,8 +72,8 @@ export function Contact() {
 
              <div className="mt-12 overflow-hidden border border-dark/10 h-[300px]">
                <iframe
-                 title="BK Distributors Location"
-                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3427.1!2d-92.4274!3d31.3224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8626b4e1b0e1b0e1%3A0x0!2s112+Pelican+Dr+Suite+B%2C+Pineville%2C+LA+71360!5e0!3m2!1sen!2sus!4v1714000000000"
+                 title="BK Distributors Location — 112 Pelican Drive Suite B, Pineville LA"
+                 src="https://maps.google.com/maps?q=112+Pelican+Drive+Suite+B,+Pineville,+LA+71360&output=embed"
                  width="100%"
                  height="300"
                  style={{ border: 0, filter: 'grayscale(1) contrast(1.1)' }}
