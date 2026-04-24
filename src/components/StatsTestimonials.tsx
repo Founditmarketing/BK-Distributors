@@ -56,8 +56,8 @@ export function StatsTestimonials() {
           </div>
           
           <div className="flex justify-center space-x-6 pt-8">
-             <button className="text-[13px] tracking-widest uppercase border-b border-dark/20 pb-1 hover:border-gold transition-colors">Read All Reviews</button>
-             <button className="text-[13px] tracking-widest uppercase border-b border-dark/20 pb-1 hover:border-gold transition-colors">Leave a Review</button>
+             <a href="/reviews" className="text-[13px] tracking-widest uppercase border-b border-dark/20 pb-1 hover:border-gold transition-colors">Read All Reviews</a>
+             <a href="https://g.page/r/CerKdDTQ99d_EAg/review" target="_blank" rel="noopener noreferrer" className="text-[13px] tracking-widest uppercase border-b border-dark/20 pb-1 hover:border-gold transition-colors">Leave a Review</a>
           </div>
         </div>
       </div>
