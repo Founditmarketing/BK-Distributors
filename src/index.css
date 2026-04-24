@@ -54,6 +54,15 @@
   .mono-label {
     @apply font-mono text-[10px] uppercase tracking-[0.15em];
   }
+
+  /* Gold helpers used throughout components */
+  .gold-accent {
+    @apply text-gold;
+  }
+
+  .gold-bg {
+    @apply bg-gold;
+  }
 }
 
 @keyframes scroll-dot {
