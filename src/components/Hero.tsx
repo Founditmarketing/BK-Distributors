@@ -16,7 +16,7 @@ export function Hero() {
             transition={{ duration: 0.6 }}
             className="flex items-center space-x-3"
           >
-            <span className="mono-label gold-accent">Est. 2000 · Pineville, LA</span>
+
           </motion.div>
 
           <h1 className="space-y-[-10px]">
