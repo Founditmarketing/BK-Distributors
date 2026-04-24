@@ -68,7 +68,7 @@ export function Hero() {
               Get a Quote <span className="text-xl group-hover:translate-x-1 transition-transform">→</span>
             </button>
             <button
-              onClick={() => document.getElementById('gallery')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => navigate('/gallery')}
               className="border border-cream text-cream px-10 py-5 rounded-full sans-ui text-[14px] hover:bg-cream hover:text-dark transition-colors"
             >
               See Our Work
