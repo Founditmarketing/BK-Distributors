@@ -2,61 +2,44 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { PageHero } from '../components/PageHero';
 
+// Only real-world & professional studio shots — no white-background ecommerce catalog images
 const ALL_IMAGES = [
-  // Rings
-  { src: 'https://bkdistrib.com/wp-content/uploads/2022/06/DSC_0634-scaled.jpg',  cat: 'Rings', label: 'Championship Ring' },
-  { src: 'https://bkdistrib.com/wp-content/uploads/2020/10/CZC601G.jpg',          cat: 'Rings', label: 'Gold Ring — CZC601' },
-  { src: 'https://bkdistrib.com/wp-content/uploads/2020/10/CZC601S.jpg',          cat: 'Rings', label: 'Silver Ring — CZC601' },
-  { src: 'https://bkdistrib.com/wp-content/uploads/2020/10/CZC603G.jpg',          cat: 'Rings', label: 'Gold Ring — CZC603' },
-  { src: 'https://bkdistrib.com/wp-content/uploads/2020/10/CZC603S.jpg',          cat: 'Rings', label: 'Silver Ring — CZC603' },
-  { src: 'https://bkdistrib.com/wp-content/uploads/2020/10/CZC605G.jpg',          cat: 'Rings', label: 'Gold Ring — CZC605' },
-  { src: 'https://bkdistrib.com/wp-content/uploads/2020/10/CZC605S.jpg',          cat: 'Rings', label: 'Silver Ring — CZC605' },
-  { src: 'https://bkdistrib.com/wp-content/uploads/2020/10/CZC607G.jpg',          cat: 'Rings', label: 'Gold Ring — CZC607' },
-  { src: 'https://bkdistrib.com/wp-content/uploads/2020/10/CZC607S.jpg',          cat: 'Rings', label: 'Silver Ring — CZC607' },
-  { src: 'https://bkdistrib.com/wp-content/uploads/2020/10/CZC609G.jpg',          cat: 'Rings', label: 'Gold Ring — CZC609' },
-  { src: 'https://bkdistrib.com/wp-content/uploads/2020/10/CZC609S.jpg',          cat: 'Rings', label: 'Silver Ring — CZC609' },
-  { src: 'https://bkdistrib.com/wp-content/uploads/2020/10/CZC610G.jpg',          cat: 'Rings', label: 'Gold Ring — CZC610' },
-  { src: 'https://bkdistrib.com/wp-content/uploads/2020/10/CZC610S.jpg',          cat: 'Rings', label: 'Silver Ring — CZC610' },
+  // Rings — DSC professional only
+  { src: 'https://bkdistrib.com/wp-content/uploads/2022/06/DSC_0634-scaled.jpg',  cat: 'Rings',         label: 'Championship Ring' },
 
-  // Trophies
-  { src: 'https://bkdistrib.com/wp-content/uploads/2022/06/DSC_0556-scaled.jpg',  cat: 'Trophies', label: 'Trophy Display' },
-  { src: 'https://bkdistrib.com/wp-content/uploads/2022/06/DSC_0562-scaled.jpg',  cat: 'Trophies', label: 'Trophy Display' },
-  { src: 'https://bkdistrib.com/wp-content/uploads/2022/06/DSC_0704-scaled.jpg',  cat: 'Trophies', label: 'Trophies & Awards' },
-  { src: 'https://bkdistrib.com/wp-content/uploads/2022/06/DSC_0705-scaled.jpg',  cat: 'Trophies', label: 'Award Display' },
-  { src: 'https://bkdistrib.com/wp-content/uploads/2022/06/DSC_0710-scaled.jpg',  cat: 'Trophies', label: 'Custom Trophy' },
-  { src: 'https://bkdistrib.com/wp-content/uploads/2022/06/DSC_0720-scaled.jpg',  cat: 'Trophies', label: 'Custom Trophy' },
-  { src: 'https://bkdistrib.com/wp-content/uploads/2022/06/DSC_0722-scaled.jpg',  cat: 'Trophies', label: 'Custom Trophy' },
-  { src: 'https://bkdistrib.com/wp-content/uploads/2020/09/BCR103.jpg',           cat: 'Trophies', label: 'Trophy Award' },
-  { src: 'https://bkdistrib.com/wp-content/uploads/2020/09/BCR107.jpg',           cat: 'Trophies', label: 'Trophy Award' },
-  { src: 'https://bkdistrib.com/wp-content/uploads/2020/09/BCR108.jpg',           cat: 'Trophies', label: 'Trophy Award' },
-  { src: 'https://bkdistrib.com/wp-content/uploads/2020/09/VSR101.jpg',           cat: 'Trophies', label: 'Victory Trophy' },
-  { src: 'https://bkdistrib.com/wp-content/uploads/2020/09/VSR102.jpg',           cat: 'Trophies', label: 'Victory Trophy' },
-  { src: 'https://bkdistrib.com/wp-content/uploads/2020/09/VSR103.jpg',           cat: 'Trophies', label: 'Victory Trophy' },
+  // Trophies & Awards — DSC professional series
+  { src: 'https://bkdistrib.com/wp-content/uploads/2022/06/DSC_0556-scaled.jpg',  cat: 'Trophies',      label: 'Trophy Display' },
+  { src: 'https://bkdistrib.com/wp-content/uploads/2022/06/DSC_0562-scaled.jpg',  cat: 'Trophies',      label: 'Trophy Display' },
+  { src: 'https://bkdistrib.com/wp-content/uploads/2022/06/DSC_0704-scaled.jpg',  cat: 'Trophies',      label: 'Trophies & Awards' },
+  { src: 'https://bkdistrib.com/wp-content/uploads/2022/06/DSC_0705-scaled.jpg',  cat: 'Trophies',      label: 'Award Display' },
+  { src: 'https://bkdistrib.com/wp-content/uploads/2022/06/DSC_0710-scaled.jpg',  cat: 'Trophies',      label: 'Custom Trophy' },
+  { src: 'https://bkdistrib.com/wp-content/uploads/2022/06/DSC_0720-scaled.jpg',  cat: 'Trophies',      label: 'Custom Trophy' },
+  { src: 'https://bkdistrib.com/wp-content/uploads/2022/06/DSC_0722-scaled.jpg',  cat: 'Trophies',      label: 'Custom Trophy' },
 
-  // Medals & Awards
-  { src: 'https://bkdistrib.com/wp-content/uploads/2022/06/DSC_0641-scaled.jpg',  cat: 'Medals', label: 'Championship Medals' },
-  { src: 'https://bkdistrib.com/wp-content/uploads/2022/06/DSC_0646-scaled.jpg',  cat: 'Medals', label: 'Custom Medals' },
-  { src: 'https://bkdistrib.com/wp-content/uploads/2022/06/DSC_0659-scaled.jpg',  cat: 'Medals', label: 'Medal Display' },
-  { src: 'https://bkdistrib.com/wp-content/uploads/2022/06/DSC_0675-scaled.jpg',  cat: 'Medals', label: 'Award Medals' },
-  { src: 'https://bkdistrib.com/wp-content/uploads/2022/06/DSC_0681-scaled.jpg',  cat: 'Medals', label: 'Engraved Medals' },
-  { src: 'https://bkdistrib.com/wp-content/uploads/2022/06/DSC_0693-scaled.jpg',  cat: 'Medals', label: 'Custom Medals' },
+  // Medals — DSC professional series
+  { src: 'https://bkdistrib.com/wp-content/uploads/2022/06/DSC_0641-scaled.jpg',  cat: 'Medals',        label: 'Championship Medals' },
+  { src: 'https://bkdistrib.com/wp-content/uploads/2022/06/DSC_0646-scaled.jpg',  cat: 'Medals',        label: 'Custom Medals' },
+  { src: 'https://bkdistrib.com/wp-content/uploads/2022/06/DSC_0659-scaled.jpg',  cat: 'Medals',        label: 'Medal Display' },
+  { src: 'https://bkdistrib.com/wp-content/uploads/2022/06/DSC_0675-scaled.jpg',  cat: 'Medals',        label: 'Award Medals' },
+  { src: 'https://bkdistrib.com/wp-content/uploads/2022/06/DSC_0681-scaled.jpg',  cat: 'Medals',        label: 'Engraved Medals' },
+  { src: 'https://bkdistrib.com/wp-content/uploads/2022/06/DSC_0693-scaled.jpg',  cat: 'Medals',        label: 'Custom Medals' },
 
-  // Plaques
-  { src: 'https://bkdistrib.com/wp-content/uploads/2020/10/IMG_5469.jpeg',        cat: 'Plaques', label: 'Custom Plaque' },
-  { src: 'https://bkdistrib.com/wp-content/uploads/2020/10/IMG_5470-rotated.jpeg',cat: 'Plaques', label: 'Custom Plaque' },
-  { src: 'https://bkdistrib.com/wp-content/uploads/2020/10/IMG_5471.jpeg',        cat: 'Plaques', label: 'Custom Plaque' },
-  { src: 'https://bkdistrib.com/wp-content/uploads/2020/10/IMG_5472.jpeg',        cat: 'Plaques', label: 'Custom Plaque' },
-  { src: 'https://bkdistrib.com/wp-content/uploads/2020/10/IMG_5473.jpeg',        cat: 'Plaques', label: 'Custom Plaque' },
-  { src: 'https://bkdistrib.com/wp-content/uploads/2020/10/IMG_5474-rotated.jpeg',cat: 'Plaques', label: 'Custom Plaque' },
-  { src: 'https://bkdistrib.com/wp-content/uploads/2020/10/IMG_5475.jpeg',        cat: 'Plaques', label: 'Custom Plaque' },
-  { src: 'https://bkdistrib.com/wp-content/uploads/2020/10/IMG_5476-rotated.jpeg',cat: 'Plaques', label: 'Custom Plaque' },
-  { src: 'https://bkdistrib.com/wp-content/uploads/2020/10/IMG_5477-rotated.jpeg',cat: 'Plaques', label: 'Custom Plaque' },
-  { src: 'https://bkdistrib.com/wp-content/uploads/2020/10/IMG_5478-rotated.jpeg',cat: 'Plaques', label: 'Custom Plaque' },
-  { src: 'https://bkdistrib.com/wp-content/uploads/2020/10/IMG_5479-rotated.jpeg',cat: 'Plaques', label: 'Custom Plaque' },
-  { src: 'https://bkdistrib.com/wp-content/uploads/2020/10/IMG_5480-rotated.jpeg',cat: 'Plaques', label: 'Custom Plaque' },
-  { src: 'https://bkdistrib.com/wp-content/uploads/2020/10/IMG_5481-rotated.jpeg',cat: 'Plaques', label: 'Custom Plaque' },
+  // Plaques — real photos from plaque page
+  { src: 'https://bkdistrib.com/wp-content/uploads/2020/10/IMG_5469.jpeg',        cat: 'Plaques',       label: 'Custom Plaque' },
+  { src: 'https://bkdistrib.com/wp-content/uploads/2020/10/IMG_5470-rotated.jpeg',cat: 'Plaques',       label: 'Custom Plaque' },
+  { src: 'https://bkdistrib.com/wp-content/uploads/2020/10/IMG_5471.jpeg',        cat: 'Plaques',       label: 'Custom Plaque' },
+  { src: 'https://bkdistrib.com/wp-content/uploads/2020/10/IMG_5472.jpeg',        cat: 'Plaques',       label: 'Custom Plaque' },
+  { src: 'https://bkdistrib.com/wp-content/uploads/2020/10/IMG_5473.jpeg',        cat: 'Plaques',       label: 'Custom Plaque' },
+  { src: 'https://bkdistrib.com/wp-content/uploads/2020/10/IMG_5474-rotated.jpeg',cat: 'Plaques',       label: 'Custom Plaque' },
+  { src: 'https://bkdistrib.com/wp-content/uploads/2020/10/IMG_5475.jpeg',        cat: 'Plaques',       label: 'Custom Plaque' },
+  { src: 'https://bkdistrib.com/wp-content/uploads/2020/10/IMG_5476-rotated.jpeg',cat: 'Plaques',       label: 'Custom Plaque' },
+  { src: 'https://bkdistrib.com/wp-content/uploads/2020/10/IMG_5477-rotated.jpeg',cat: 'Plaques',       label: 'Custom Plaque' },
+  { src: 'https://bkdistrib.com/wp-content/uploads/2020/10/IMG_5478-rotated.jpeg',cat: 'Plaques',       label: 'Custom Plaque' },
+  { src: 'https://bkdistrib.com/wp-content/uploads/2020/10/IMG_5479-rotated.jpeg',cat: 'Plaques',       label: 'Custom Plaque' },
+  { src: 'https://bkdistrib.com/wp-content/uploads/2020/10/IMG_5480-rotated.jpeg',cat: 'Plaques',       label: 'Custom Plaque' },
+  { src: 'https://bkdistrib.com/wp-content/uploads/2020/10/IMG_5481-rotated.jpeg',cat: 'Plaques',       label: 'Custom Plaque' },
 
-  // Vehicle Wraps
+  // Vehicle Wraps — real on-location shots
   { src: 'https://bkdistrib.com/wp-content/uploads/2020/09/IMG_2493-scaled.jpeg', cat: 'Vehicle Wraps', label: 'Vehicle Wrap' },
   { src: 'https://bkdistrib.com/wp-content/uploads/2020/09/IMG_2974-scaled.jpeg', cat: 'Vehicle Wraps', label: 'Vehicle Wrap' },
   { src: 'https://bkdistrib.com/wp-content/uploads/2020/09/IMG_5885-scaled.jpeg', cat: 'Vehicle Wraps', label: 'Vehicle Wrap' },
@@ -68,32 +51,22 @@ const ALL_IMAGES = [
   { src: 'https://bkdistrib.com/wp-content/uploads/2022/06/IMG_2507-scaled.jpeg', cat: 'Vehicle Wraps', label: 'Full Vehicle Wrap' },
 
   // Banners
-  { src: 'https://bkdistrib.com/wp-content/uploads/2020/09/IMG_0142-scaled.jpeg', cat: 'Banners', label: 'Custom Banner' },
-  { src: 'https://bkdistrib.com/wp-content/uploads/2020/09/IMG_3210-scaled.jpeg', cat: 'Banners', label: 'Event Banner' },
-  { src: 'https://bkdistrib.com/wp-content/uploads/2020/10/IMG_5488.jpeg',        cat: 'Banners', label: 'Vinyl Banner' },
-  { src: 'https://bkdistrib.com/wp-content/uploads/2020/10/IMG_5492.jpeg',        cat: 'Banners', label: 'Custom Banner' },
-  { src: 'https://bkdistrib.com/wp-content/uploads/2020/10/IMG_5493.jpeg',        cat: 'Banners', label: 'Sports Banner' },
-  { src: 'https://bkdistrib.com/wp-content/uploads/2020/10/IMG_5502.jpeg',        cat: 'Banners', label: 'Banner Display' },
+  { src: 'https://bkdistrib.com/wp-content/uploads/2020/09/IMG_0142-scaled.jpeg', cat: 'Banners',       label: 'Custom Banner' },
+  { src: 'https://bkdistrib.com/wp-content/uploads/2020/09/IMG_3210-scaled.jpeg', cat: 'Banners',       label: 'Event Banner' },
+  { src: 'https://bkdistrib.com/wp-content/uploads/2020/10/IMG_5488.jpeg',        cat: 'Banners',       label: 'Vinyl Banner' },
+  { src: 'https://bkdistrib.com/wp-content/uploads/2020/10/IMG_5492.jpeg',        cat: 'Banners',       label: 'Custom Banner' },
+  { src: 'https://bkdistrib.com/wp-content/uploads/2020/10/IMG_5493.jpeg',        cat: 'Banners',       label: 'Sports Banner' },
+  { src: 'https://bkdistrib.com/wp-content/uploads/2020/10/IMG_5502.jpeg',        cat: 'Banners',       label: 'Banner Display' },
 
   // Decals
-  { src: 'https://bkdistrib.com/wp-content/uploads/2020/09/IMG_4029-scaled.jpeg', cat: 'Decals', label: 'Custom Decals' },
-  { src: 'https://bkdistrib.com/wp-content/uploads/2020/09/IMG_4908-scaled.jpeg', cat: 'Decals', label: 'Vinyl Decal' },
-  { src: 'https://bkdistrib.com/wp-content/uploads/2020/09/IMG_7854-scaled.jpeg', cat: 'Decals', label: 'Custom Cut Decal' },
-  { src: 'https://bkdistrib.com/wp-content/uploads/2020/09/IMG_8477-scaled.jpeg', cat: 'Decals', label: 'Decal Application' },
-  { src: 'https://bkdistrib.com/wp-content/uploads/2020/09/IMG_9618-scaled.jpeg', cat: 'Decals', label: 'Vinyl Decals' },
+  { src: 'https://bkdistrib.com/wp-content/uploads/2020/09/IMG_4029-scaled.jpeg', cat: 'Decals',        label: 'Custom Decals' },
+  { src: 'https://bkdistrib.com/wp-content/uploads/2020/09/IMG_4908-scaled.jpeg', cat: 'Decals',        label: 'Vinyl Decal' },
+  { src: 'https://bkdistrib.com/wp-content/uploads/2020/09/IMG_7854-scaled.jpeg', cat: 'Decals',        label: 'Custom Cut Decal' },
+  { src: 'https://bkdistrib.com/wp-content/uploads/2020/09/IMG_8477-scaled.jpeg', cat: 'Decals',        label: 'Decal Application' },
+  { src: 'https://bkdistrib.com/wp-content/uploads/2020/09/IMG_9618-scaled.jpeg', cat: 'Decals',        label: 'Vinyl Decals' },
 
-  // Political Signs
+  // Signs
   { src: 'https://bkdistrib.com/wp-content/uploads/2020/09/68613572_2467339723330994_2127178730546659328_n.jpg', cat: 'Signs', label: 'Political Signs' },
-
-  // Stickers
-  { src: 'https://bkdistrib.com/wp-content/uploads/2022/06/11.png',               cat: 'Stickers', label: 'Custom Stickers' },
-  { src: 'https://bkdistrib.com/wp-content/uploads/2022/06/11-1.png',             cat: 'Stickers', label: 'Custom Stickers' },
-
-  // Apparel
-  { src: 'https://bkdistrib.com/wp-content/uploads/2025/10/20-300x300.png',              cat: 'Apparel', label: 'Custom Shirt' },
-  { src: 'https://bkdistrib.com/wp-content/uploads/2025/10/25-300x300.png',              cat: 'Apparel', label: 'Custom Shirt' },
-  { src: 'https://bkdistrib.com/wp-content/uploads/2025/10/26-300x300.png',              cat: 'Apparel', label: 'Custom Shirt' },
-  { src: 'https://bkdistrib.com/wp-content/uploads/2026/03/CVMA-Shirt-Front-300x300.png',cat: 'Apparel', label: 'Custom Shirt' },
 ];
 
 const CATEGORIES = ['All', ...Array.from(new Set(ALL_IMAGES.map(i => i.cat)))];

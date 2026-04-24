@@ -8,7 +8,7 @@ const SERVICES = [
     title: 'Trophies',
     slug: 'trophies',
     desc: 'Custom engraved for every occasion and sport',
-    img: 'https://bkdistrib.com/wp-content/uploads/2020/09/BCR103.jpg',
+    img: 'https://bkdistrib.com/wp-content/uploads/2022/06/DSC_0704-scaled.jpg',
   },
   {
     icon: <Award />,
