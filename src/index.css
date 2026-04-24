@@ -38,31 +38,34 @@
   }
 }
 
-@layer utilities {
-  .section-padding {
-    @apply py-24 md:py-32;
-  }
+@utility section-padding {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
 
-  .serif-heavy {
-    @apply font-display font-bold;
-  }
+@utility serif-heavy {
+  font-family: var(--font-display);
+  font-weight: 700;
+}
 
-  .sans-ui {
-    @apply font-sans font-light;
-  }
+@utility sans-ui {
+  font-family: var(--font-sans);
+  font-weight: 300;
+}
 
-  .mono-label {
-    @apply font-mono text-[10px] uppercase tracking-[0.15em];
-  }
+@utility mono-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
 
-  /* Gold helpers used throughout components */
-  .gold-accent {
-    @apply text-gold;
-  }
+@utility gold-accent {
+  color: var(--color-gold);
+}
 
-  .gold-bg {
-    @apply bg-gold;
-  }
+@utility gold-bg {
+  background-color: var(--color-gold);
 }
 
 @keyframes scroll-dot {
