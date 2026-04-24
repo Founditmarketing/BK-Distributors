@@ -39,7 +39,7 @@ export function Navbar() {
 
         {/* CTA */}
         <div className="hidden lg:block">
-          <button className="border border-gold px-8 py-2.5 rounded-full sans-ui text-[12px] tracking-widest uppercase text-cream hover:bg-gold hover:text-dark transition-all duration-300">
+          <button className="bg-gold text-dark border border-gold px-8 py-2.5 rounded-full sans-ui text-[12px] tracking-widest uppercase font-bold hover:bg-transparent hover:text-gold transition-all duration-300">
             Get a Quote
           </button>
         </div>
