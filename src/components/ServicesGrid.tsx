@@ -138,6 +138,31 @@ export function ServicesGrid() {
               </div>
             </motion.div>
           ))}
+
+          {/* All Services CTA card */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: SERVICES.length * 0.05 }}
+            onClick={() => navigate('/services')}
+            className="gold-bg group hover:opacity-90 transition-opacity cursor-pointer border-r border-b border-gold/10 flex flex-col"
+          >
+            <div className="h-48 flex items-center justify-center">
+              <span className="font-display text-7xl text-dark/20 font-bold select-none">11+</span>
+            </div>
+            <div className="p-8 flex-1 flex flex-col">
+              <h3 className="font-display text-2xl mb-2 text-dark">
+                All Services
+              </h3>
+              <p className="text-dark/60 text-sm font-sans font-light leading-relaxed flex-1">
+                Browse everything we offer — trophies, rings, wraps, signs, apparel, and more.
+              </p>
+              <span className="mt-4 mono-label text-dark font-bold">
+                View All →
+              </span>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
