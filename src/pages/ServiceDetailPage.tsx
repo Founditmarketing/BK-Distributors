@@ -141,8 +141,11 @@ const SERVICES: Record<string, ServiceData> = {
     title: 'Stickers',
     slug: 'stickers',
     tagline: 'Die-cut, sheet, and custom-shaped sticker printing',
-    description: 'Custom stickers in any shape, size, or quantity. Weatherproof vinyl, matte or gloss finish, perfect for branding, promotions, school stores, and events. No images yet — call us to see samples.',
-    images: [], // OG site only had generic numbered graphics
+    description: 'Custom stickers in any shape, size, or quantity. Weatherproof vinyl, matte or gloss finish, perfect for branding, promotions, school stores, and events.',
+    images: [
+      { src: 'https://bkdistrib.com/wp-content/uploads/2022/06/11.png',   alt: 'Custom stickers' },
+      { src: 'https://bkdistrib.com/wp-content/uploads/2022/06/11-1.png', alt: 'Custom sticker samples' },
+    ],
   },
   apparel: {
     title: 'Apparel',
