@@ -23,7 +23,7 @@ export function About() {
             </div>
 
             <div className="pt-4">
-               <a href="#about-us" className="inline-flex items-center text-dark font-sans font-medium text-lg group">
+               <a href="/about" className="inline-flex items-center text-dark font-sans font-medium text-lg group">
                 Meet the Team 
                 <span className="ml-2 group-hover:translate-x-2 transition-transform text-gold duration-300">→</span>
                </a>

@@ -1,4 +1,17 @@
+import { Link } from 'react-router-dom';
 import { Facebook } from 'lucide-react';
+
+const SERVICE_LINKS = [
+  { label: 'Trophies',        slug: 'trophies' },
+  { label: 'Plaques',         slug: 'plaques' },
+  { label: 'Medals',          slug: 'medals' },
+  { label: 'Signs',           slug: 'signs' },
+  { label: 'Vehicle Wraps',   slug: 'vehicle-wraps' },
+  { label: 'Banners',         slug: 'banners' },
+  { label: 'Decals',          slug: 'decals' },
+  { label: 'Stickers',        slug: 'stickers' },
+  { label: 'Apparel',         slug: 'apparel' },
+];
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -11,10 +24,15 @@ export function Footer() {
           <div className="col-span-1 lg:col-span-1 space-y-6">
              <h3 className="font-display text-2xl font-bold text-cream">BK DISTRIBUTORS</h3>
              <p className="text-cream/50 text-sm font-sans leading-relaxed">
-               Custom awards, signs & more — crafted with pride in Pineville, Louisiana since 2000.
+               Custom awards, signs &amp; more — crafted with pride in Pineville, Louisiana since 2000.
              </p>
              <div className="flex space-x-4">
-                <a href="https://facebook.com" className="w-10 h-10 rounded-full border border-gold/30 flex items-center justify-center text-gold hover:bg-gold hover:text-dark transition-all">
+                <a
+                  href="https://www.facebook.com/bkdistributors/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-full border border-gold/30 flex items-center justify-center text-gold hover:bg-gold hover:text-dark transition-all"
+                >
                   <Facebook size={18} />
                 </a>
              </div>
@@ -24,8 +42,12 @@ export function Footer() {
           <div className="space-y-6">
             <h4 className="font-mono text-[11px] text-gold uppercase tracking-widest">Our Services</h4>
             <ul className="space-y-3">
-              {['Trophies', 'Plaques', 'Medals', 'Signs', 'Vehicle Wraps', 'Banners', 'Decals', 'Stickers', 'Apparel'].map(s => (
-                <li key={s}><a href="#" className="text-cream/50 hover:text-gold text-sm font-sans transition-colors">{s}</a></li>
+              {SERVICE_LINKS.map(s => (
+                <li key={s.slug}>
+                  <Link to={`/services/${s.slug}`} className="text-cream/50 hover:text-gold text-sm font-sans transition-colors">
+                    {s.label}
+                  </Link>
+                </li>
               ))}
             </ul>
           </div>
@@ -34,22 +56,25 @@ export function Footer() {
           <div className="space-y-6">
             <h4 className="mono-label text-gold uppercase tracking-widest">Connect</h4>
             <div className="space-y-4 text-cream/50 sans-ui text-sm">
-               <p>(318) 442-2246</p>
-               <p>scott.bkd@gmail.com</p>
-               <p>112 Pelican Drive Suite B, Pineville, LA 71360</p>
+               <p><a href="tel:3184422246" className="hover:text-gold transition-colors">(318) 442-2246</a></p>
+               <p><a href="mailto:scott.bkd@gmail.com" className="hover:text-gold transition-colors">scott.bkd@gmail.com</a></p>
+               <p>112 Pelican Drive Suite B<br />Pineville, LA 71360</p>
             </div>
-            <button className="gold-border border text-gold w-full py-4 rounded-full sans-ui text-[12px] uppercase tracking-widest hover:bg-gold hover:text-dark transition-all">
+            <a
+              href="tel:3184422246"
+              className="border border-gold text-gold w-full py-4 rounded-full sans-ui text-[12px] uppercase tracking-widest hover:bg-gold hover:text-dark transition-all block text-center"
+            >
               Call Us Now
-            </button>
+            </a>
           </div>
 
-          {/* Quick Links */}
+          {/* Hours */}
           <div className="space-y-6">
-            <h4 className="font-mono text-[11px] text-gold uppercase tracking-widest">Business Info</h4>
+            <h4 className="font-mono text-[11px] text-gold uppercase tracking-widest">Business Hours</h4>
             <div className="text-cream/50 text-sm font-sans space-y-4">
                <p>Mon–Thurs: 8:30am – 5:00pm</p>
                <p>Friday: 8:30am – 12:00pm</p>
-               <p>Saturday & Sunday: Closed</p>
+               <p>Saturday &amp; Sunday: Closed</p>
             </div>
           </div>
         </div>
@@ -59,8 +84,9 @@ export function Footer() {
              © {currentYear} BK Distributors. Pineville, Louisiana.
            </p>
            <div className="flex space-x-8 text-cream/30 font-mono text-[11px] uppercase tracking-widest">
-              <a href="#" className="hover:text-gold transition-colors">Privacy</a>
-              <a href="#" className="hover:text-gold transition-colors">Terms</a>
+              <Link to="/about" className="hover:text-gold transition-colors">About</Link>
+              <Link to="/contact" className="hover:text-gold transition-colors">Contact</Link>
+              <a href="https://www.facebook.com/bkdistributors/" target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors">Facebook</a>
            </div>
         </div>
       </div>

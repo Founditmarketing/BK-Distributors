@@ -13,19 +13,21 @@ export function Schools() {
              <p className="text-cream/50 text-lg leading-relaxed font-sans max-w-lg">
                 We take special pride in partnering with our local schools. From championship rings to school store apparel, we help students and athletes celebrate their biggest moments with gear that lasts.
              </p>
-             <button className="text-gold font-sans font-medium hover:translate-x-2 transition-transform flex items-center">
+             <a href="/contact" className="text-gold font-sans font-medium hover:translate-x-2 transition-transform flex items-center">
                 Inquire about a partnership <span className="ml-2">→</span>
-             </button>
+             </a>
            </div>
 
            <div className="grid gap-6">
               <SchoolCard 
                 title="Pineville Powerlifting" 
                 desc="Official custom equipment and apparel supplier for the PHS Powerlifting program."
+                href="https://bkdistrib.com/product-category/pineville-powerlifting/"
               />
               <SchoolCard 
                 title="Hayden R. Lawrence" 
                 desc="Exclusive school store partner providing branded merchandise and spirit wear."
+                href="https://bkdistrib.com/hayden-r-lawrence/"
               />
            </div>
         </div>
@@ -34,7 +36,7 @@ export function Schools() {
   );
 }
 
-function SchoolCard({ title, desc }: { title: string, desc: string }) {
+function SchoolCard({ title, desc, href }: { title: string, desc: string, href: string }) {
   return (
     <motion.div 
       whileHover={{ scale: 1.02 }}
@@ -45,7 +47,7 @@ function SchoolCard({ title, desc }: { title: string, desc: string }) {
       </div>
       <h3 className="font-display text-3xl mb-4 text-cream group-hover:text-gold transition-colors">{title}</h3>
       <p className="text-cream/40 text-sm font-sans mb-6 max-w-sm">{desc}</p>
-      <a href="#" className="flex items-center text-gold font-mono text-[10px] uppercase tracking-widest group-hover:gap-3 transition-all gap-2">
+      <a href={href} target="_blank" rel="noopener noreferrer" className="flex items-center text-gold font-mono text-[10px] uppercase tracking-widest group-hover:gap-3 transition-all gap-2">
          Visit Shop <span>→</span>
       </a>
     </motion.div>
