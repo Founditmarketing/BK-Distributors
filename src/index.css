@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Cormorant+Garamond:ital,wght@0,600;1,600&family=DM+Sans:wght@300;400;500&family=DM+Mono&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Playfair Display", serif;
+  --font-heading: "Cormorant Garamond", serif;
+  --font-sans: "DM Sans", sans-serif;
+  --font-mono: "DM Mono", monospace;
+
+  --color-dark: #0D0D0B;
+  --color-surface: #1A1A14;
+  --color-gold: #C9A86C;
+  --color-cream: #E8E1CC;
+  --color-offwhite: #F5F0E6;
+  --color-terracotta: #B5835A;
+}
+
+@layer base {
+  body {
+    @apply bg-dark text-cream font-sans antialiased selection:bg-gold selection:text-dark;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight;
+  }
+
+  .text-label {
+    @apply font-mono text-[10px] uppercase tracking-[0.15em] text-gold;
+  }
+
+  .grain-overlay {
+    @apply fixed inset-0 pointer-events-none z-[100] opacity-[0.04];
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  }
+
+  .watermark {
+    @apply absolute -right-[100px] top-1/2 -translate-y-1/2 rounded-full border border-gold/[0.04] pointer-events-none;
+  }
+}
+
+@layer utilities {
+  .section-padding {
+    @apply py-24 md:py-32;
+  }
+
+  .serif-heavy {
+    @apply font-display font-bold;
+  }
+
+  .sans-ui {
+    @apply font-sans font-light;
+  }
+
+  .mono-label {
+    @apply font-mono text-[10px] uppercase tracking-[0.15em];
+  }
+}
+
+@keyframes scroll-dot {
+  0% { transform: translateY(0); opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { transform: translateY(40px); opacity: 0; }
+}
+
+.animate-scroll-dot {
+  animation: scroll-dot 2s infinite ease-in-out;
+}
