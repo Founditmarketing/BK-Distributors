@@ -78,7 +78,7 @@ const SERVICES = [
     title: 'Apparel',
     slug: 'apparel',
     desc: 'Screen printing, embroidery, custom school store items',
-    img: null, // no photos on OG site
+    img: 'https://bkdistrib.com/wp-content/uploads/2022/12/Screenshot-2024-01-12-at-12.35.57 PM-300x300.png',
   },
 ];
 

@@ -152,7 +152,15 @@ const SERVICES: Record<string, ServiceData> = {
     slug: 'apparel',
     tagline: 'Screen printing, embroidery, custom school store items',
     description: 'We handle screen printing and embroidery for t-shirts, polos, hoodies, hats, and more. Perfect for teams, schools, businesses, and events. Visit us or call to discuss your order.',
-    images: [], // OG site had no apparel photos
+    images: [
+      { src: "https://bkdistrib.com/wp-content/uploads/2022/12/Screenshot-2024-01-12-at-12.35.57 PM-300x300.png", alt: 'Custom apparel' },
+      { src: "https://bkdistrib.com/wp-content/uploads/2022/12/Screenshot-2024-01-12-at-12.36.02 PM-300x300.png", alt: 'Custom apparel' },
+      { src: "https://bkdistrib.com/wp-content/uploads/2022/12/Screenshot-2024-01-12-at-12.36.31 PM-300x300.png", alt: 'Custom apparel' },
+      { src: 'https://bkdistrib.com/wp-content/uploads/2025/10/20-300x300.png', alt: 'Custom shirt design' },
+      { src: 'https://bkdistrib.com/wp-content/uploads/2025/10/25-300x300.png', alt: 'Custom shirt design' },
+      { src: 'https://bkdistrib.com/wp-content/uploads/2025/10/26-300x300.png', alt: 'Custom shirt design' },
+      { src: 'https://bkdistrib.com/wp-content/uploads/2026/03/CVMA-Shirt-Front-300x300.png', alt: 'Custom shirt' },
+    ],
   },
 };
 
